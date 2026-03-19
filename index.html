@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SlapMapper</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+<div id="sidebar">
+    <br>
+    <h2>Projector Settings</h2>
+    <div class="settings-row">
+        <input type="number" id="proj-w" value="1920" max="9999">
+        <span>x</span>
+        <input type="number" id="proj-h" value="1080" max="9999">
+    </div>
+    <button id="launch-projector" class="primary-btn">Launch Projector View</button>
+
+    <hr>
+    <h2>Panels</h2>
+    <div id="layer-list"></div>
+    <button id="add-panel" class="add-btn">+ Add Panel</button>
+    <div id="vertex-controls"></div>
+
+    <hr>
+    <h2>Panel Fill</h2>
+    <div class="effects-grid" id="fill-effects">
+        <button class="fill-btn" data-type="fill" data-effect="solid">Solid Color</button>
+        <button class="fill-btn" data-type="fill" data-effect="grid">Grid</button>
+        <button class="fill-btn" data-type="fill" data-effect="scan_bar">Scan Bar</button>
+        <button class="fill-btn" data-type="fill" data-effect="ripple">Ripple</button>
+        <button class="fill-btn" data-type="fill" data-effect="image">Image</button>
+        <button class="fill-btn" data-type="fill" data-effect="text">Text</button>
+        <button class="fill-btn" data-type="fill" data-effect="laser_fan">Laser Fan</button>
+        <button class="fill-btn" data-type="fill" data-effect="hyperspace">Hyperspace</button>
+        <button class="fill-btn" data-type="fill" data-effect="dj_wash">DJ Wash</button>
+        <button class="fill-btn" data-type="fill" data-effect="radar_sweep">Radar Sweep</button>
+        <button class="fill-btn" data-type="fill" data-effect="pulse_rings">Pulse Rings</button>
+        <button class="fill-btn" data-type="fill" data-effect="cyber_rain">Cyber Rain</button>
+    </div>
+
+    <div style="padding: 8px 0" id="effect-controls-container"></div>
+
+    <button id="upload-image-btn" class="add-btn" style="display:none">Set Image</button>
+    <input type="file" id="image-loader" style="display:none" accept="image/*">
+    <input type="text" id="text-input-field" class="add-btn" style="display:none; text-align:center; background:#222; color:#fff;" placeholder="Enter text here...">
+
+
+    <hr>
+    <h2>Panel Opacity Effects</h2>
+    <div class="effects-grid" id="opacity-effects">
+        <button class="effect-btn" data-type="opacity" data-effect="visible">Visible</button>
+        <button class="effect-btn" data-type="opacity" data-effect="hidden">Hidden</button>
+        <button class="effect-btn" data-type="opacity" data-effect="breathe">Breathe</button>
+        <button class="effect-btn" data-type="opacity" data-effect="strobe">Strobe</button>
+        <button class="effect-btn" data-type="opacity" data-effect="hot_control">HOT CONTROL</button>
+    </div>
+
+
+    <hr>
+    <h2>Hot Controls (1-9)</h2>
+    <div id="hot-grid" class="hot-grid"></div>
+    <div id="hot-config-panel" style="display:none; margin-top:10px; padding:10px; background:#111; border-radius:4px;">
+        <div id="config-label" style="font-size:11px; margin-bottom:5px; color:var(--primary)">Config Slot</div>
+        <select id="hot-anim-type">
+            <option value="fast_in_fast_out">Fast In / Fast Out</option>
+            <option value="fast_in_fade_out">Fast In / Fade Out</option>
+            <option value="hold_strobe">Hold: Strobe</option>
+            <option value="hold_solid">Hold: Solid</option>
+        </select>
+    </div>
+
+
+</div>
+
+<div id="editor-main" style="display: flex; flex-direction: column; height: 100vh; overflow: hidden;">
+
+    <div id="editor-workspace" style="flex-grow: 1; display: flex; justify-content: center; align-items: center; background: #0a0a0a;">
+
+        <div style="display: flex; flex-direction: column; align-items: center;">
+
+            <div id="canvas-toolbar" style="margin-bottom: 10px; display: flex; gap: 10px;">
+                <button id="btn-fullscreen-panel" class="add-btn" style="background: var(--primary); margin:0;">⛶ Fullscreen Panel</button>
+                <button id="btn-snap-grid" class="add-btn" style="background:#444; margin:0;">Grid Snap: OFF</button>
+                <button id="btn-snap-panels" class="add-btn" style="background:#444; margin:0;">Panel Snap: OFF</button>
+            </div>
+
+            <div id="preview-container">
+                <canvas id="preview-canvas"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="timeline" style="border-top: 1px solid #333; background: #1a1a1a;">
+        <div class="timeline-header" style="padding: 5px 15px; font-size: 12px; color: #aaa;">Timeline</div>
+        <div class="timeline-track" style="height: 100px; position: relative; border-top: 1px solid #222;">
+            <div class="playhead" style="width: 2px; height: 100%; background: #be4242; position: absolute; left: 10%;"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

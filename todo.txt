@@ -1,0 +1,28 @@
+
+    TODO:
+
+    [ ] Adjust/move/tweak all panels at once drag option
+
+    [ ] Allow zoom in on preview
+
+    [ ] Allow changing snap distance
+
+    [ ] Add video fill support
+
+    [ ] Allow panel layers to be changed, so you can control which layers are visible over which other panel layers
+
+    [ ] Create/add groups, where multiple panels can be controlled via one group instead of via one individual panel
+
+    [ ] Save/load features for panels and layout
+
+    [ ] Add shaders fill support
+
+    [ ] Add timeline
+        - keyframes
+          - opacity
+          - hot controls
+          - hue shift/change
+        - save/export
+        - load/import
+        - import song file
+        - record live hot controls to replay/save with audio
